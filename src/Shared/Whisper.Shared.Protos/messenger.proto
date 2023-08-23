@@ -1,0 +1,92 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Whisper.Shared.Protos";
+
+package messenger;
+
+service Messenger {
+    rpc Connect (ConnectRequest) returns (ConnectResponse);
+    rpc Disconnect (ConnectRequest) returns (ConnectResponse);
+    rpc GetRooms (ConnectRequest) returns (stream MessengerRoom);
+    rpc GetMessages (OpenRoomRequest) returns (stream MessengerMessage);
+    rpc GetUsers(ConnectRequest) returns (stream MessengerUser);
+    rpc CreateRoom(CreateRoomRequest) returns (MessengerRoom);
+    rpc SendTo(SendRequest) returns (MessengerMessage);
+}
+
+service Account {
+    rpc Login (LoginRequest) returns (LoginResultResponse);
+    rpc Register (RegisterRequest) returns (LoginResultResponse);
+}
+
+message UserInfoResponse {
+    MessengerUser User = 1;
+    string token = 2;
+}
+
+message ErrorResponse {
+    string message = 1;
+}
+
+message LoginRequest {
+    string login = 1;
+    string password = 2;
+}
+
+message RegisterRequest {
+    string userName = 1;
+    LoginRequest loginParams = 2;
+}
+
+message LoginResultResponse {
+    oneof result {
+        UserInfoResponse user = 1;
+        ErrorResponse error = 2;
+    }
+}
+
+message ConnectRequest {
+    int64 userId = 1;
+}
+
+message ConnectResponse {
+    oneof result {
+        MessengerUser user = 1;
+        ErrorResponse error = 3;
+    }
+}
+
+message SendRequest {
+    MessengerMessage message = 1;
+}
+
+message MessengerUser {
+    int64 id = 1;
+    string name = 2;
+    bool online = 3;
+}
+
+message MessengerMessage {
+    int64 id = 1;
+    int64 senderId = 2;
+    int64 targetId = 3;
+    string message = 4;
+    int64 roomId = 5;
+}
+
+message MessengerRoom {
+    int64 id = 1;
+    string name = 3;
+    repeated MessengerUser users = 2;
+}
+
+message OpenRoomRequest {
+    int64 roomId = 1;
+}
+
+message CreateRoomRequest {
+    string name = 1;
+    int64 creatorId = 2;
+    repeated MessengerUser users = 3;
+    MessengerMessage message = 4;
+}
