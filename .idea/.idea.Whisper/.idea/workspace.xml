@@ -12,72 +12,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb336a14-8b45-4a8d-b091-94ee8514b877" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Base/ConnectionModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Base/ServerBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Base/Whisper.Backend.Base.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.ChatModels/MessengerMessageModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.ChatModels/MessengerRoomModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Auth/ChatJwtValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Auth/JwtTokenExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Auth/TokenParameters.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Services/AccountService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Whisper.Backend.Server.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Whisper.Backend.Server.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/ViewModels/MainViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Whisper.Frontend.Avalonia.Core.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Directory.Build.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/MainActivity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Properties/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Resources/AboutResources.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Resources/drawable-night-v31/avalonia_anim.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Resources/drawable-v31/avalonia_anim.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Resources/drawable/splash_screen.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Resources/values-night/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Resources/values-v31/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Resources/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Resources/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Android/Whisper.Frontend.Avalonia.Android.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/AppBundle/Logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/AppBundle/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/AppBundle/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/AppBundle/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/AppBundle/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/Whisper.Frontend.Avalonia.Browser.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/runtimeconfig.template.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Desktop/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Desktop/Whisper.Frontend.Avalonia.Desktop.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Desktop/app.manifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.iOS/AppDelegate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.iOS/Entitlements.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.iOS/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.iOS/Main.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.iOS/Resources/LaunchScreen.xib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.iOS/Whisper.Frontend.Avalonia.iOS.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/App.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/App.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Assets/avalonia-logo.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/ViewLocator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainView.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainWindow.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainWindow.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Shared/Whisper.Frontend.Shared.Core/ChannelExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/Shared/Whisper.Frontend.Shared.Core/Whisper.Frontend.Shared.Core.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Whisper.Shared.Protos/Whisper.Shared.Protos.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Whisper.Shared.Protos/messenger.proto" afterDir="false" />
+    <list default="true" id="bb336a14-8b45-4a8d-b091-94ee8514b877" name="Changes" comment="2">
+      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Factory/PageViewModelFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Pages/WelcomePage.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Pages/WelcomePage.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Whisper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Whisper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Whisper.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Whisper.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/IoC/IoC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/IoC/IoC.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/ViewModels/MainViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/App.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/ViewLocator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/ViewLocator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/ViewModels/MainViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/ViewModels/ViewModelBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,8 +40,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/93bf8ca51564b3532dce6442f8ec6d3856e11622b484427b6e965ca60aba4b1/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19ba5a289f2afd3f4d5e862cb3f3efee6181683a31ee31b86c2298b1f51114b/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2UEfhZGLglpbfBE2XElVW88LkkK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -98,30 +51,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "rider.run.widget.enabled.cache": "false",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Dmitrij\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Dmitrij\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Dmitrij\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/dmitrij-471/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/dmitrij-471/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/dmitrij-471/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Whisper.Backend.Server: IIS Express">
+}</component>
+  <component name="RunManager" selected=".NET Project.Whisper.Frontend.Avalonia.Desktop">
     <configuration name="Whisper.Frontend.Avalonia.Desktop" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -222,13 +176,208 @@
       <workItem from="1692798567950" duration="65000" />
       <workItem from="1692799183362" duration="3197000" />
       <workItem from="1692815922019" duration="88000" />
+      <workItem from="1693053781390" duration="1872000" />
+      <workItem from="1693055960483" duration="125000" />
+      <workItem from="1693060712414" duration="607000" />
+      <workItem from="1693061487071" duration="6194000" />
+      <workItem from="1693070934727" duration="6266000" />
+      <workItem from="1693161090032" duration="1044000" />
+      <workItem from="1693232804578" duration="8621000" />
+      <workItem from="1693243966033" duration="4774000" />
+      <workItem from="1693251278947" duration="1858000" />
     </task>
+    <task id="LOCAL-00001" summary="2">
+      <created>1693075742680</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693075742680</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs</url>
+          <line>25</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs" initialLine="25" containingFunctionPresentation="Method 'Init'">
+            <startOffsets>
+              <option value="697" />
+            </startOffsets>
+            <endOffsets>
+              <option value="698" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs</url>
+          <line>42</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs" initialLine="40" containingFunctionPresentation="Method 'CheckTokenAndLogin'">
+            <startOffsets>
+              <option value="1302" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1303" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs</url>
+          <line>66</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs" initialLine="64" containingFunctionPresentation="Method 'AuthorizeAsync'">
+            <startOffsets>
+              <option value="1898" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1899" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs</url>
+          <line>132</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs" initialLine="130" containingFunctionPresentation="Method 'IsTokenValid'">
+            <startOffsets>
+              <option value="3748" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3749" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Pages/WelcomePageViewModel.cs</url>
+          <line>29</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Pages/WelcomePageViewModel.cs" initialLine="29" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="794" />
+            </startOffsets>
+            <endOffsets>
+              <option value="795" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Pages/WelcomePageViewModel.cs</url>
+          <line>41</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Pages/WelcomePageViewModel.cs" initialLine="41" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="1110" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1111" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Pages/WelcomePageViewModel.cs</url>
+          <line>52</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Pages/WelcomePageViewModel.cs" initialLine="52" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="1407" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1408" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs</url>
+          <line>123</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/Helpers/MessengerApiHelper.cs" initialLine="121" containingFunctionPresentation="Method 'GetAccountClient'">
+            <startOffsets>
+              <option value="3483" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3624" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/ViewLocator.cs</url>
+          <line>11</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/ViewLocator.cs" initialLine="10" containingFunctionPresentation="Method 'Build'">
+            <startOffsets>
+              <option value="246" />
+            </startOffsets>
+            <endOffsets>
+              <option value="247" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Services/AccountService.cs</url>
+          <line>101</line>
+          <properties documentPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Services/AccountService.cs" initialLine="101" containingFunctionPresentation="Method 'GetUserInfo'">
+            <startOffsets>
+              <option value="3014" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3015" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Services/AccountService.cs</url>
+          <line>61</line>
+          <properties documentPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Services/AccountService.cs" initialLine="61" containingFunctionPresentation="Method 'Register'">
+            <startOffsets>
+              <option value="1757" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1758" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Services/AccountService.cs</url>
+          <line>35</line>
+          <properties documentPath="$PROJECT_DIR$/src/Backend/Whisper.Backend.Server/Services/AccountService.cs" initialLine="35" containingFunctionPresentation="Method 'Login'">
+            <startOffsets>
+              <option value="961" />
+            </startOffsets>
+            <endOffsets>
+              <option value="962" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/ViewModels/MainViewModel.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/src/Frontend/Avalonia/Whisper.Frontend.Avalonia.Core/ViewModels/MainViewModel.cs" initialLine="23" containingFunctionPresentation="Method 'Init'">
+            <startOffsets>
+              <option value="742" />
+            </startOffsets>
+            <endOffsets>
+              <option value="743" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

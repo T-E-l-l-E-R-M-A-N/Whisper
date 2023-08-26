@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/App.axaml" value="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/Whisper.Frontend.Avalonia.Browser.csproj" />
+        <entry key="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Pages/WelcomePage.axaml" value="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/Whisper.Frontend.Avalonia.Browser.csproj" />
+        <entry key="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainView.axaml" value="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/Whisper.Frontend.Avalonia.Browser.csproj" />
+        <entry key="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/MainWindow.axaml" value="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/Whisper.Frontend.Avalonia.Browser.csproj" />
+        <entry key="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia/Views/WelcomePage.axaml" value="src/Frontend/Avalonia/Whisper.Frontend.Avalonia/Whisper.Frontend.Avalonia.Browser/Whisper.Frontend.Avalonia.Browser.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

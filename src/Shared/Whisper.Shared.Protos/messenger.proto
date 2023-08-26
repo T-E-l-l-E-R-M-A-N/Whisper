@@ -17,11 +17,17 @@ service Messenger {
 service Account {
     rpc Login (LoginRequest) returns (LoginResultResponse);
     rpc Register (RegisterRequest) returns (LoginResultResponse);
+    rpc GetUserInfo(LoginByTokenRequest) returns (UserInfoResponse);
 }
 
 message UserInfoResponse {
     MessengerUser User = 1;
     string token = 2;
+    ErrorResponse error = 3;
+}
+
+message LoginByTokenRequest {
+    string token = 1;
 }
 
 message ErrorResponse {

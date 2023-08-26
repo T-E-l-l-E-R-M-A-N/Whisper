@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 
@@ -12,8 +13,8 @@ public class ViewLocator : IDataTemplate
         if (data is null)
             return null;
 
-        var name = data.GetType().FullName!.Replace("ViewModel", "View");
-        var type = Type.GetType(name);
+        var name = data.GetType().Name!.Replace("ViewModel", "");
+        var type = this.GetType().Assembly.DefinedTypes.FirstOrDefault(x => x.Name == name);
 
         if (type != null)
         {

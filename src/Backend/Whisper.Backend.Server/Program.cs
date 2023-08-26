@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpc();
 
 builder.Services.AddDbContext<MessengerDbContext>(options => options
-    .UseSqlite("Data Source=messenger.db"));
+    .UseSqlite("Data Source=messenger.db"), ServiceLifetime.Singleton);
 
 builder.Services.AddIdentity<MessengerUserModel, IdentityRole>()
     .AddEntityFrameworkStores<MessengerDbContext>()
@@ -82,6 +82,9 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapGrpcService<AccountService>();
+    endpoints.MapGrpcService<MessengerService>();
+    
     endpoints.MapFallbackToFile("index.html");
 });
 

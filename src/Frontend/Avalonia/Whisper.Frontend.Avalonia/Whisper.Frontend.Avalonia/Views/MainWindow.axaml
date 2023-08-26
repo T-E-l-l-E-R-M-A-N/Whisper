@@ -6,6 +6,40 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Whisper.Frontend.Avalonia.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
+        ExtendClientAreaToDecorationsHint="True"
         Title="Whisper.Frontend.Avalonia">
-        <views:MainView />
+        <Grid>
+            <Border Height="54"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    x:Name="Window_Titlebar"/>
+            <views:MainView />   
+             <Border Height="54" VerticalAlignment="Top">
+                 <StackPanel VerticalAlignment="Center"
+                             HorizontalAlignment="Left"
+                             Spacing="8"
+                             Orientation="Horizontal"
+                             IsVisible="False"
+                             x:Name="Window_ControlBox"
+                             Margin="10,0">
+                     <StackPanel.Styles>
+                         <Style Selector="Border">
+                             <Setter Property="Width" Value="12"/>
+                             <Setter Property="Height" Value="12"/>
+                             <Setter Property="CornerRadius" Value="6"/>
+                             <Setter Property="BorderThickness" Value="1"/>
+                         </Style>
+                     </StackPanel.Styles>
+                     <Border x:Name="Window_ControlBox_CloseButton"
+                             BorderBrush="#ee3f42"
+                             Background="#ff5a5a"/>
+                     <Border x:Name="Window_ControlBox_MinimizeButton"
+                             BorderBrush="#ea9d3a"
+                             Background="#ffb846"/>
+                     <Border x:Name="Window_ControlBox_ExpandButton"
+                             BorderBrush="#13ab3f"
+                             Background="#00b44a"/>
+                 </StackPanel>
+             </Border>
+        </Grid>
 </Window>

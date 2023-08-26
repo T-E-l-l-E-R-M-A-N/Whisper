@@ -5,7 +5,6 @@
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
-
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
@@ -21,5 +20,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Whisper.Frontend.Avalonia.Core\Whisper.Frontend.Avalonia.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Pages\WelcomePage.axaml.cs">
+        <DependentUpon>WelcomePage.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 </Project>
