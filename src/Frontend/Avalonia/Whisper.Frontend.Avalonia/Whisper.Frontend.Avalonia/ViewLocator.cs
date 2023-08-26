@@ -1,7 +1,7 @@
 using System;
-using System.ComponentModel;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
+using Whisper.Frontend.Avalonia.ViewModels;
 
 namespace Whisper.Frontend.Avalonia;
 
@@ -25,6 +25,6 @@ public class ViewLocator : IDataTemplate
 
     public bool Match(object? data)
     {
-        return data is INotifyPropertyChanged;
+        return data is ViewModelBase;
     }
 }

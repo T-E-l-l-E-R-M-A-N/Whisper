@@ -1,21 +1,17 @@
 ﻿using Prism.Mvvm;
 
-namespace Whisper.Frontend.Avalonia.Core.ViewModels;
+namespace Whisper.Frontend.Avalonia.Core;
 
-public sealed class MainViewModel : BindableBase
+public class MainViewModel : BindableBase
 {
     private readonly IPageViewModelFactory _pageViewModelFactory;
-    private readonly MessengerService _messengerService;
+    private readonly MessengerApiHelper _messengerApiHelper;
 
     public MainViewModel(
         IPageViewModelFactory pageViewModelFactory, 
-        MessengerService messengerService)
+        MessengerApiHelper messengerApiHelper)
     {
         _pageViewModelFactory = pageViewModelFactory;
-        _messengerService = messengerService;
+        _messengerApiHelper = messengerApiHelper;
     }
-}
-
-public class MessengerService
-{
 }

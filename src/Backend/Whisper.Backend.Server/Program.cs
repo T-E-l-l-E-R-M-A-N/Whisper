@@ -82,6 +82,9 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapGrpcService<AccountService>();
+    endpoints.MapGrpcService<MessengerService>();
+    
     endpoints.MapFallbackToFile("index.html");
 });
 

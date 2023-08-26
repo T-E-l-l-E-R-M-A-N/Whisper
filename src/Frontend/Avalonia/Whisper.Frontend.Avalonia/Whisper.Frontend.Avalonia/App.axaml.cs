@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Whisper.Frontend.Avalonia.ViewModels;
 using Whisper.Frontend.Avalonia.Views;
 
 namespace Whisper.Frontend.Avalonia;
@@ -18,14 +19,14 @@ public partial class App : Application
         {
             desktop.MainWindow = new MainWindow
             {
-                //DataContext = new MainViewModel()
+                DataContext = new MainViewModel()
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
             singleViewPlatform.MainView = new MainView
             {
-                //DataContext = new MainViewModel()
+                DataContext = new MainViewModel()
             };
         }
 
