@@ -21,7 +21,7 @@
             <Border>
                 <StackPanel>
                     <TextBlock Text="Password"/>
-                    <PasswordBox Height="30"
+                    <TextBox Height="30"
                              CornerRadius="8"/>
                 </StackPanel>
             </Border>
