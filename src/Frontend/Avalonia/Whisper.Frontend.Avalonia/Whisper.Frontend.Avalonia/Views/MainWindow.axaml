@@ -10,10 +10,12 @@
         ExtendClientAreaToDecorationsHint="True"
         Title="Whisper.Frontend.Avalonia">
         <Grid>
-            <Border Height="54"
+			<Border Height="54"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    x:Name="Window_Titlebar"/>
+                    x:Name="Window_Titlebar">
+                
+            </Border>
             <views:MainView />   
              <Border Height="54" VerticalAlignment="Top">
                  <StackPanel VerticalAlignment="Center"

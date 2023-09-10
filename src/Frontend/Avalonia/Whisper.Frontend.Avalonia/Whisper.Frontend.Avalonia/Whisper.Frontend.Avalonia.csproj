@@ -3,7 +3,6 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
-        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,6 +19,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="Pages\RoomsPage.axaml.cs">
+        <DependentUpon>RoomsPage.axaml</DependentUpon>
+      </Compile>
       <Compile Update="Pages\WelcomePage.axaml.cs">
         <DependentUpon>WelcomePage.axaml</DependentUpon>
         <SubType>Code</SubType>

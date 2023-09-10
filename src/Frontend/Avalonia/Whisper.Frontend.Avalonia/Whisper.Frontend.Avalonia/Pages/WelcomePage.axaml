@@ -4,27 +4,154 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Whisper.Frontend.Avalonia.Views.WelcomePage">
-    <StackPanel >
-        <Border Height="70">
-            <TextBlock Text="Welcome" VerticalAlignment="Bottom"
+    <UserControl.Styles>
+        <Style Selector="TextBox">
+            <Setter Property="Theme" Value="{DynamicResource login_tb}"/>
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Foreground" Value="CornflowerBlue"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style Selector="Button:pointerover /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="CornflowerBlue"></Setter>
+        </Style>
+    </UserControl.Styles>
+    <UserControl.Resources>
+        
+        <ControlTheme x:Key="login_tb" TargetType="TextBox">
+           <ControlTheme.Setters>
+               <Setter Property="Template">
+                   <ControlTemplate TargetType="TextBox">
+                       <Border BorderThickness="0,0,0,1" Background="Transparent" BorderBrush="#55000000">
+                           <DockPanel LastChildFill="True">
+                               <ContentControl Content="{TemplateBinding InnerLeftContent}"/>
+                               <TextPresenter VerticalAlignment="Center" x:Name="PART_TextPresenter"
+                                              PasswordChar="{TemplateBinding PasswordChar}"
+                                              SelectionBrush="{TemplateBinding SelectionBrush}"
+                                              CaretIndex="{TemplateBinding CaretIndex}" 
+                                              Margin="10,0"
+                                              Text="{TemplateBinding Text}" />
+                               <ContentControl Content="{TemplateBinding InnerRightContent}"/>
+                           </DockPanel>
+                       </Border>
+                   </ControlTemplate>
+               </Setter>
+           </ControlTheme.Setters>
+        </ControlTheme>
+	</UserControl.Resources>
+    <DockPanel LastChildFill="True">
+        <Border Height="100" DockPanel.Dock="Top">
+            <TextBlock Text="{Binding Greeting}" VerticalAlignment="Bottom"
                        FontWeight="Bold"
-                       Margin="50,8"/>
+                       Margin="50,8"
+					   FontSize="30"/>
         </Border>
-        <StackPanel Spacing="5">
-            <Border>
-                <StackPanel>
-                    <TextBlock Text="Login"/>
-                    <TextBox Height="30"
-                             CornerRadius="8"/>
-                </StackPanel>
+        <Grid>
+            <Border BorderThickness="1"
+                    IsVisible="{Binding !IsRegister}"
+                    Width="300"
+                    Background="#FFFFFF"
+                    Height="300"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    BorderBrush="#55555555">
+                <Grid>
+                    <StackPanel Spacing="5"
+                                VerticalAlignment="Top"
+                                Width="300">
+                        <TextBox Height="30"
+                                 Text="{Binding Login}"
+                                 CornerRadius="8">
+                            <TextBox.InnerLeftContent>
+                                <TextBlock Text="Login" Opacity="0.5" Margin="10,0,30,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            </TextBox.InnerLeftContent>
+                        </TextBox>
+                        <TextBox Height="30"
+                                 RevealPassword="True"
+                                 PasswordChar="#"
+                                 Text="{Binding Password}"
+                                 CornerRadius="8">
+                            <TextBox.InnerLeftContent>
+                                <TextBlock Text="Password" Opacity="0.5" Margin="10,0,2,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            </TextBox.InnerLeftContent>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Bottom"
+                                Margin="0,0,0,20"
+                                Spacing="5">
+                        <Button HorizontalAlignment="Center"
+                                Command="{Binding LoginCommand}"
+                                TextBlock.TextAlignment="Center"
+                                Foreground="Black"
+                                Content="Sign in"></Button>
+                        <TextBlock Text="Does not have an account?" FontSize="12" TextAlignment="Center" Opacity="0.5"/>
+                        <Button HorizontalAlignment="Center"
+                                Command="{Binding SwitchModeCommand}"
+                                TextBlock.TextAlignment="Center"
+                                Content="Register"></Button>
+                    </StackPanel>
+                </Grid>
             </Border>
-            <Border>
-                <StackPanel>
-                    <TextBlock Text="Password"/>
-                    <TextBox Height="30"
-                             CornerRadius="8"/>
-                </StackPanel>
+            <Border BorderThickness="1"
+                    IsVisible="{Binding IsRegister}"
+                    Width="300"
+                    Background="#FFFFFF"
+                    Height="300"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    BorderBrush="#55555555">
+                <Grid>
+                    <StackPanel Spacing="5"
+                                VerticalAlignment="Top"
+                                Width="300">
+                        <TextBox Height="30"
+                                 Text="{Binding Username}"
+                                 CornerRadius="8">
+                            <TextBox.InnerLeftContent>
+                                <TextBlock Text="Name" Opacity="0.5" Margin="10,0,30,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            </TextBox.InnerLeftContent>
+                        </TextBox>
+                        <TextBox Height="30"
+                                 Text="{Binding Login}"
+                                 CornerRadius="8">
+                            <TextBox.InnerLeftContent>
+                                <TextBlock Text="Login" Opacity="0.5" Margin="10,0,30,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            </TextBox.InnerLeftContent>
+                        </TextBox>
+                        <TextBox Height="30"
+                                 RevealPassword="True"
+                                 PasswordChar="#"
+                                 Text="{Binding Password}"
+                                 CornerRadius="8">
+                            <TextBox.InnerLeftContent>
+                                <TextBlock Text="Password" Opacity="0.5" Margin="10,0,2,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            </TextBox.InnerLeftContent>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Bottom"
+                                Margin="0,0,0,20"
+                                Spacing="5">
+                        <Button HorizontalAlignment="Center"
+                                Command="{Binding RegisterCommand}"
+                                TextBlock.TextAlignment="Center"
+                                Foreground="Black"
+                                Content="Register"></Button>
+                        <TextBlock Text="Already have an account?" FontSize="12" TextAlignment="Center" Opacity="0.5"/>
+                        <Button HorizontalAlignment="Center"
+                                Command="{Binding SwitchModeCommand}"
+                                TextBlock.TextAlignment="Center"
+                                Content="Sign in"></Button>
+                    </StackPanel>
+                </Grid>
             </Border>
-        </StackPanel>
-    </StackPanel>
+        </Grid>
+    </DockPanel>
 </UserControl>

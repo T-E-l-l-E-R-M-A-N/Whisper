@@ -20,6 +20,9 @@ public static class IoC
         services.AddScoped<IPageViewModelFactory, PageViewModelFactory>();
         services.AddScoped<MainViewModel>();
         services.AddScoped<IPageViewModel, WelcomePageViewModel>();
+        services.AddScoped<IPageViewModel, PeoplePageViewModel>();
+        services.AddScoped<IPageViewModel, RoomsPageViewModel>();
+        services.AddTransient<IPageViewModel, ProfilePageViewModel>();
 
         _serviceProvider = services.BuildServiceProvider();
 

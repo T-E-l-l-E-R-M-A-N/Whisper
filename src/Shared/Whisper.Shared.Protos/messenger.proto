@@ -12,6 +12,10 @@ service Messenger {
     rpc GetUsers(ConnectRequest) returns (stream MessengerUser);
     rpc CreateRoom(CreateRoomRequest) returns (MessengerRoom);
     rpc SendTo(SendRequest) returns (MessengerMessage);
+    rpc GetUser(GetUserRequest) returns (MessengerUser);
+    rpc GetRoom(GetRoomRequest) returns (MessengerRoom);
+    rpc GetMessage(GetMessageRequest) returns (MessengerMessage);
+    
 }
 
 service Account {
@@ -53,6 +57,18 @@ message LoginResultResponse {
 
 message ConnectRequest {
     int64 userId = 1;
+}
+
+message GetUserRequest {
+    int64 userId = 1;
+}
+
+message GetMessageRequest {
+    int64 id = 1;
+}
+
+message GetRoomRequest {
+    int64 id = 1;
 }
 
 message ConnectResponse {

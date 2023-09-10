@@ -11,11 +11,11 @@ public class MessengerDbContext : IdentityDbContext<MessengerUserModel>
 
     public MessengerDbContext()
     {
-        
+        //Database.EnsureCreated();
     }
 
     public MessengerDbContext(DbContextOptions<MessengerDbContext> options) : base(options)
     {
-        
+        //Database.EnsureCreated();
     }
 }

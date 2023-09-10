@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Whisper.Frontend.Avalonia.Views.ProfilePage">
+	<DockPanel LastChildFill="True">
+		<Border Height="100" DockPanel.Dock="Top">
+			<TextBlock Text="{Binding User.Name}" VerticalAlignment="Bottom"
+                       FontWeight="Bold"
+                       Margin="50,8"
+					   FontSize="30"/>
+		</Border>
+		<Grid>
+
+        </Grid>
+	</DockPanel>
+</UserControl>

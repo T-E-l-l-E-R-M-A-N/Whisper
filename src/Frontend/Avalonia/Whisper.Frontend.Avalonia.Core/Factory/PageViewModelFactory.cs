@@ -5,19 +5,35 @@ public class PageViewModelFactory : IPageViewModelFactory
     public async Task<IPageViewModel> GetWelcomePageViewModel()
     {
         var page = await GetPageViewModel(PageType.Welcome);
-        (page as WelcomePageViewModel).Init();
+        (page as WelcomePageViewModel)?.Init();
         return page;
     }
 
-    public Task<IPageViewModel> GetRoomsPageViewModel() => null;
-    public Task<IPageViewModel> GetRoomPageViewModel(long roomId) => null;
-    public Task<IPageViewModel> GetPeoplePageViewModel() => null;
-    public Task<IPageViewModel> GetProfilePageViewModel(long userId) => null;
-    public Task<IPageViewModel> GetSettingsPageViewModel() => null;
-    public Task<IPageViewModel> GetSearchPageViewModel() => null;
+    public async Task<IPageViewModel> GetRoomsPageViewModel()
+    {
+        var page = await GetPageViewModel(PageType.Rooms);
+        await (page as RoomsPageViewModel)?.Init()!;
+        return page;
+    }
+    public Task<IPageViewModel> GetRoomPageViewModel(long roomId) => null!;
+    public async Task<IPageViewModel> GetPeoplePageViewModel()
+    {
+        var page = await GetPageViewModel(PageType.People);
+        await (page as PeoplePageViewModel)?.Init()!;
+        return page;
+    }
+
+    public async Task<IPageViewModel> GetProfilePageViewModel(long userId)
+    {
+        var page = await GetPageViewModel(PageType.Profile);
+        await (page as ProfilePageViewModel)?.Init(userId)!;
+        return page;
+    }
+    public Task<IPageViewModel> GetSettingsPageViewModel() => null!;
+    public Task<IPageViewModel> GetSearchPageViewModel() => null!;
 
     private async Task<IPageViewModel> GetPageViewModel(PageType type)
     {
-        return IoC.Resolve<IEnumerable<IPageViewModel>>().FirstOrDefault(x => x.Type == type)!;
+        return await Task.Run(() => IoC.Resolve<IEnumerable<IPageViewModel>>().FirstOrDefault(x => x.Type == type)!);
     }
 }

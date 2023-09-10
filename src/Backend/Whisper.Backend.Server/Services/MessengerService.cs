@@ -1,5 +1,6 @@
 using Grpc.Core;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Whisper.Backend.Base;
 using Whisper.Backend.ChatModels;
 using Whisper.Shared.Protos;
@@ -10,10 +11,14 @@ namespace Whisper.Backend.Server;
 public class MessengerService : Messenger.MessengerBase
 {
     private readonly ServerBase? _serverBase;
+    private readonly UserManager<MessengerUserModel> _userManager;
 
-    public MessengerService(ServerBase? serverBase)
+    private IServerStreamWriter<MessengerMessage> _messagesResponseStream;
+
+    public MessengerService(ServerBase? serverBase, UserManager<MessengerUserModel> userManager)
     {
         _serverBase = serverBase;
+        _userManager = userManager;
     }
 
     public override async Task<ConnectResponse> Connect(ConnectRequest request, ServerCallContext context)
@@ -64,24 +69,38 @@ public class MessengerService : Messenger.MessengerBase
 
     public override async Task GetMessages(OpenRoomRequest request, IServerStreamWriter<MessengerMessage> responseStream, ServerCallContext context)
     {
+        var user = await _userManager.GetUserAsync(context.GetHttpContext().User);
 
-        while (!context.CancellationToken.IsCancellationRequested)
+        var session = await _serverBase.GetConnectionAsync(user.LongId);
+
+        _messagesResponseStream = responseStream;
+
+        session.NewMessageSent += SessionOnNewMessageSent;
+
+        session.Init(request.RoomId);
+
+        try
         {
-            foreach (var msg in await _serverBase?.GetMessagesAsync(request.RoomId)!)
-            {
-                await responseStream.WriteAsync(new MessengerMessage()
-                {
-                    Id = msg.Id,
-                    Message = msg.Text,
-                    RoomId = msg.RoomId,
-                    SenderId = msg.SenderId,
-                    TargetId = msg.TargetId
-                });
-            }
-            
-            await Task.Delay(2000);
+            await Task.Delay(int.MaxValue, context.CancellationToken);
         }
+        catch (TaskCanceledException e)
+        {
+            Console.WriteLine(e.Message, "ChatRoomService.JoinChat.Cancelled");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message, "ChatRoomService.JoinChat");
+        }
+        finally
+        {
+            session.NewMessageSent -= SessionOnNewMessageSent;
+
+            session.Dispose();
+            _messagesResponseStream = null!;
+        }
+        _messagesResponseStream = responseStream;
     }
+
 
     public override async Task<MessengerRoom> CreateRoom(CreateRoomRequest request, ServerCallContext context)
     {
@@ -109,7 +128,45 @@ public class MessengerService : Messenger.MessengerBase
 
     public override async Task<MessengerMessage> SendTo(SendRequest request, ServerCallContext context)
     {
-        await _serverBase.SendToBuddieAsync(request.Message.SenderId, request.Message.RoomId, request.Message.TargetId, request.Message.Message);
+        await _serverBase.SendToAsync(request.Message.Id, request.Message.SenderId, request.Message.RoomId, request.Message.TargetId, request.Message.Message);
         return request.Message;
+    }
+
+    public override async Task<MessengerUser> GetUser(GetUserRequest request, ServerCallContext context)
+    {
+        var user = await _serverBase?.GetUserByIdAsync(request.UserId);
+
+        return new MessengerUser()
+        {
+            Id = user.LongId,
+            Name = user.ScreenName,
+            Online = user.Online == 1
+        };
+    }
+    public override async Task<MessengerMessage> GetMessage(GetMessageRequest request, ServerCallContext context)
+    {
+        var msg = await _serverBase?.GetMessageByIdAsync(request.Id)!;
+
+        return new MessengerMessage()
+        {
+            Id = msg.Id,
+            Message = msg.Text,
+            RoomId = msg.RoomId,
+            SenderId = msg.SenderId,
+            TargetId = msg.TargetId
+        };
+    }
+
+
+    private async void SessionOnNewMessageSent(MessengerMessageModel message)
+    {
+        await _messagesResponseStream.WriteAsync(new MessengerMessage()
+        {
+            Message = message.Text,
+            Id = message.Id,
+            RoomId = message.RoomId,
+            SenderId = message.SenderId,
+            TargetId = message.TargetId
+        });
     }
 }

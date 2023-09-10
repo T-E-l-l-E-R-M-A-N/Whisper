@@ -4,18 +4,124 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:avalonia="clr-namespace:Whisper.Frontend.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Whisper.Frontend.Avalonia.Views.MainView">
+             x:Class="Whisper.Frontend.Avalonia.Views.MainView"
+             FontSize="12">
+ <UserControl.Styles>
+     <Style Selector="ToggleButton.tb_toggleButton">
+         <Setter Property="CornerRadius" Value="5"/>
+         <Setter Property="MinWidth" Value="27"/>
+         <Setter Property="MinHeight" Value="27"/>
+         <Setter Property="Background" Value="Transparent"/>
+         <Setter Property="VerticalContentAlignment" Value="Center"/>
+         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+     </Style>
+     <Style Selector="Button.tb_button">
+         <Setter Property="CornerRadius" Value="5"/>
+         <Setter Property="MinWidth" Value="27"/>
+         <Setter Property="MinHeight" Value="27"/>
+         <Setter Property="Background" Value="Transparent"/>
+         <Setter Property="VerticalContentAlignment" Value="Center"/>
+         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+     </Style>
+     <Style Selector="Button.tb_button:disabled /template/ ContentPresenter">
+         <Setter Property="Opacity" Value="0.2"/>
+         <Setter Property="Background" Value="Transparent"/>
+     </Style>
+     <Style Selector="Button.tb_button:pressed /template/ ContentPresenter">
+         <Setter Property="CornerRadius" Value="5"/>
+         <Setter Property="MinWidth" Value="27"/>
+         <Setter Property="MinHeight" Value="27"/>
+         <Setter Property="Background" Value="Transparent"/>
+         <Setter Property="VerticalContentAlignment" Value="Center"/>
+         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+     </Style>
+     <Style Selector="ToggleButton.tb_toggleButton:checked /template/ ContentPresenter">
+         <Setter Property="CornerRadius" Value="5"/>
+         <Setter Property="MinWidth" Value="27"/>
+         <Setter Property="MinHeight" Value="27"/>
+         <Setter Property="Background" Value="Transparent"/>
+         <Setter Property="VerticalContentAlignment" Value="Center"/>
+         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+     </Style>
 
- <DockPanel LastChildFill="True">
-     <Border DockPanel.Dock="Top" Height="54">
-         <!--<TextBlock Text="{Binding CurrentPageViewModel.Header}" 
-                    Margin="110,0"
-                    VerticalAlignment="Center"/>-->
-     </Border>
-     <ContentControl Content="{Binding CurrentPageViewModel}">
-         <ContentControl.ContentTemplate>
-             <avalonia:ViewLocator/>
-         </ContentControl.ContentTemplate>
-     </ContentControl>
- </DockPanel>
+ </UserControl.Styles>
+ <Grid>
+     <DockPanel LastChildFill="True">
+         <Border BorderThickness="0,0,1,0"
+                 BorderBrush="#22555555"
+                 Width="220"
+                 Padding="0,54,0,0"
+                 x:Name="SB_Container">
+			 <ItemsControl ItemsSource="{Binding NavMenuCollection}"
+                      Background="Transparent"
+                      BorderThickness="0,1,0,0"
+                      BorderBrush="#22555555">
+				 <ItemsControl.ItemTemplate>
+					 <DataTemplate>
+                         <Button Command="{Binding $parent[UserControl].DataContext.NavMenuOpenPageCommand}"
+                                 CommandParameter="{Binding .}"
+                                 Padding="0"
+                                 Background="Transparent"
+                                 RenderTransform="scale(1,1)"
+                                 CornerRadius="6"
+                                 Margin="8,5"
+                                 Height="27">
+                             <Border CornerRadius="6"
+                                     Height="27"
+                                     Background="Transparent"
+                                     >
+                                 <TextBlock Text="{Binding Header}"
+                                            VerticalAlignment="Center"
+                                            Margin="5,0"/>
+                             </Border>
+                         </Button>
+                         
+					 </DataTemplate>
+				 </ItemsControl.ItemTemplate>
+             </ItemsControl>
+         </Border>
+         <ContentControl Margin="0" Padding="0" Content="{Binding CurrentPageViewModel[0]}">
+             <ContentControl.ContentTemplate>
+                 <avalonia:ViewLocator/>
+             </ContentControl.ContentTemplate>
+         </ContentControl>
+     </DockPanel>
+
+	 <Border Height="54" VerticalAlignment="Top">
+		 <Grid HorizontalAlignment="Left"
+               MinWidth="200"
+               Width="{Binding #SB_Container.Bounds.Width}">
+			 <Border CornerRadius="8" Height="20"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Background="DarkCyan"
+                     x:Name="app_logo"
+                     Margin="20,0">
+				 <TextBlock Text="MESSENGER" Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" Foreground="#FFFFFF"/>
+			 </Border>
+			 <StackPanel Spacing="5" VerticalAlignment="Center" Margin="10,0"
+                         HorizontalAlignment="Right"
+                         Orientation="Horizontal"
+             >
+				 <ToggleButton Classes="tb_toggleButton"
+                               IsChecked="{Binding #SB_Container.IsVisible}">
+					 <Viewbox Width="16"
+                              Height="16">
+						 <Path Data="M5,22 C3.34314575,22 2,20.6568542 2,19 L2,5 C2,3.34314575 3.34314575,2 5,2 L19,2 C20.6568542,2 22,3.34314575 22,5 L22,19 C22,20.6568542 20.6568542,22 19,22 L5,22 Z M11,4 L5,4 C4.44771525,4 4,4.44771525 4,5 L4,19 C4,19.5522847 4.44771525,20 5,20 L11,20 L11,4 Z M19,4 L13,4 L13,20 L19,20 C19.5522847,20 20,19.5522847 20,19 L20,5 C20,4.44771525 19.5522847,4 19,4 Z"
+                               Fill="Black"/>
+					 </Viewbox>
+				 </ToggleButton>
+				 <Button Classes="tb_button"
+                         Background="Transparent"
+                               Command="{Binding GoBackCommand}">
+					 <Viewbox Width="16"
+                              Height="16">
+						 <Path Data="M10.7902954,4.38710056 L10.7071068,4.29289322 C10.3466228,3.93240926 9.77939176,3.90467972 9.38710056,4.20970461 L9.29289322,4.29289322 L2.29289322,11.2928932 L2.2514958,11.336853 L2.2514958,11.336853 L2.19633458,11.4046934 L2.19633458,11.4046934 L2.12467117,11.5159379 L2.12467117,11.5159379 L2.07122549,11.628664 L2.07122549,11.628664 L2.03584514,11.734007 L2.03584514,11.734007 L2.00690716,11.8819045 L2.00690716,11.8819045 L2,12 L2.00278786,12.0752385 L2.00278786,12.0752385 L2.02024007,12.2007258 L2.02024007,12.2007258 L2.04973809,12.3121425 L2.04973809,12.3121425 L2.09367336,12.4232215 L2.09367336,12.4232215 L2.14599545,12.5207088 L2.14599545,12.5207088 L2.21968877,12.625449 L2.21968877,12.625449 L2.29289322,12.7071068 L9.29289322,19.7071068 C9.68341751,20.0976311 10.3165825,20.0976311 10.7071068,19.7071068 C11.0675907,19.3466228 11.0953203,18.7793918 10.7902954,18.3871006 L10.7071068,18.2928932 L5.416,13 L21,13 C21.5522847,13 22,12.5522847 22,12 C22,11.4477153 21.5522847,11 21,11 L5.414,11 L10.7071068,5.70710678 C11.0675907,5.34662282 11.0953203,4.77939176 10.7902954,4.38710056 L10.7071068,4.29289322 L10.7902954,4.38710056 Z"
+                               Fill="Black"/>
+					 </Viewbox>
+				 </Button>
+			 </StackPanel>
+		 </Grid>
+	 </Border>
+ </Grid>
 </UserControl>

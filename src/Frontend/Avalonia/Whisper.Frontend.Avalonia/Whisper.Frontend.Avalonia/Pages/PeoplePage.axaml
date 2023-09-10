@@ -1,0 +1,147 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Whisper.Frontend.Avalonia.Views.PeoplePage">
+	<Grid>
+        <DockPanel LastChildFill="True">
+            <Border Height="100" DockPanel.Dock="Top">
+                <TextBlock Text="{Binding Header}" VerticalAlignment="Bottom"
+                           FontWeight="Bold"
+                           Margin="50,8"
+                           FontSize="30"/>
+            </Border>
+            <Grid>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Visible"
+                              Background="#22AAAAAA">
+                    <ItemsControl ItemsSource="{Binding Users}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="6"
+                                        Background="#FFFFFF"
+                                        Height="54"
+                                        Margin="10"
+                                        Width="320">
+                                    <StackPanel VerticalAlignment="Center"
+                                                Orientation="Horizontal"
+                                                HorizontalAlignment="Left"
+                                                Margin="20,0"
+                                                Spacing="10">
+                                        <Border CornerRadius="6"
+                                                VerticalAlignment="Center"
+                                                Background="Green"
+                                                Width="30"
+                                                Height="30"/>
+                                        <StackPanel Spacing="5"
+                                                    VerticalAlignment="Top">
+                                            <TextBlock VerticalAlignment="Center"
+                                                       Text="{Binding Name}"/>
+                                            <Button Width="70"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    Foreground="CornflowerBlue"
+                                                    Height="20"
+                                                    Command="{Binding $parent[ItemsControl].DataContext.OpenPopupCommand}"
+                                                    CornerRadius="6"
+                                                    CommandParameter="{Binding .}"
+                                                    Background="Transparent"
+                                                    Content="New message"
+                                                    FontSize="12"
+                                                    HorizontalContentAlignment="Center"
+                                                    VerticalContentAlignment="Center"></Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </DockPanel>
+        <Grid 
+              IsVisible="{Binding NewMessagePopupVisible}">
+            <DockPanel LastChildFill="true">
+                <Rectangle Fill="#55555555"
+                           Height="54"
+                           DockPanel.Dock="Top"
+                           IsHitTestVisible="false"/>
+                <Rectangle Fill="#55555555"
+                           IsHitTestVisible="true"/>
+            </DockPanel>
+            <Grid.Styles>
+                <Style Selector="Border.popup">
+                    <Style.Animations>
+                        <Animation>
+                            <KeyFrame Cue="0%">
+                                <Setter Property="Height" Value="5"/>
+                            </KeyFrame>
+                            <KeyFrame Cue="100%">
+                                <Setter Property="Height" Value="200"/>
+                            </KeyFrame>
+                        </Animation>
+                    </Style.Animations>
+                </Style>
+            </Grid.Styles>
+            <Border VerticalAlignment="Top"
+                    Margin="0,54,0,0"
+                    Classes="popup"
+                    HorizontalAlignment="Center"
+                    Height="200"
+                    Width="500"
+                    CornerRadius="0,0,8,8"
+                    Background="#FFFFFF"
+                    Padding="20,20,20,0">
+                <DockPanel LastChildFill="true">
+                    <Border Height="54" DockPanel.Dock="Bottom">
+                        <StackPanel HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="20">
+                            <ToggleButton Width="70"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="Red"
+                                    Height="27"
+                                    IsChecked="{Binding NewMessagePopupVisible}"
+                                    CornerRadius="6"
+                                    Background="Transparent"
+                                    Content="Cancel"
+                                    FontSize="12"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center">
+
+                            </ToggleButton>
+                            <Button Width="100"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="CornflowerBlue"
+                                    Height="27"
+                                    IsEnabled="{Binding NewMessageText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                    Command="{Binding SendNewMessageCommand}"
+                                    CornerRadius="6"
+                                    Background="Transparent"
+                                    Content="Confirm"
+                                    FontSize="12"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center">
+
+                            </Button>
+                        </StackPanel>
+                    </Border>
+                    <TextBox CornerRadius="6"
+                             Text="{Binding NewMessageText}"
+                             BorderBrush="#11222222"
+                             FontSize="12"></TextBox>
+                </DockPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
+

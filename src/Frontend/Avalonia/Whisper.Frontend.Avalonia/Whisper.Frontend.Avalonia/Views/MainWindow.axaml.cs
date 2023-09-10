@@ -10,15 +10,17 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
+        Window_Titlebar.PointerPressed += (s, e) =>
+        {
+            BeginMoveDrag(e);
+        };
+
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
             Window_ControlBox.IsVisible = true;
             ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.NoChrome;
 
-            Window_Titlebar.PointerPressed += (s, e) =>
-            {
-                BeginMoveDrag(e);
-            };
+            
 
             Window_Titlebar.DoubleTapped += (s, e) =>
             {

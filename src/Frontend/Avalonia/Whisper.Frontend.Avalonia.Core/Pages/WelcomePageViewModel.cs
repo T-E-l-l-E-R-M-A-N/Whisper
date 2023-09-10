@@ -1,5 +1,6 @@
+using System.Reactive;
 using System.Windows.Input;
-using Prism.Commands;
+using ReactiveUI;
 
 namespace Whisper.Frontend.Avalonia.Core;
 
@@ -7,11 +8,15 @@ public sealed class WelcomePageViewModel : PageViewModelBase
 {
     private readonly MessengerApiHelper _messengerApiHelper;
 
+    [Reactive]
     public bool IsRegister { get; set; }
+    [Reactive]
     public string Greeting { get; set; }
-    
+    [Reactive]
     public string Username { get; set; }
+    [Reactive]
     public string Login { get; set; }
+    [Reactive]
     public string Password { get; set; }
     
     public event EventHandler LoginComplete;
@@ -26,31 +31,29 @@ public sealed class WelcomePageViewModel : PageViewModelBase
         Greeting = "Welcome to Messenger";
     }
 
-    public ICommand RegisterCommand => new DelegateCommand(async () =>
-    {
-        var result = await _messengerApiHelper.AuthorizeAsync(new string[]
+    public ReactiveCommand<Unit, Task> RegisterCommand => ReactiveCommand.Create(
+        async () =>
         {
-            Username,
-            Login,
-            Password
-        });
-        
-        if(result) LoginComplete?.Invoke(this, EventArgs.Empty);
-    });
+            var result = await _messengerApiHelper.AuthorizeAsync(new string[]
+            {
+                Username,
+                Login,
+                Password
+            });
 
-    public ICommand LoginCommand => new DelegateCommand(async () =>
-    {
-        var result = await _messengerApiHelper.AuthorizeAsync(new string[]
-        {
-            Login,
-            Password
+            if (result) LoginComplete?.Invoke(this, EventArgs.Empty);
         });
-        
-        if(result) LoginComplete?.Invoke(this, EventArgs.Empty);
-    });
-    
-    public ICommand SwitchModeCommand => new DelegateCommand(() =>
-    {
-        IsRegister = !IsRegister;
-    });
+    public ReactiveCommand<Unit, Task> LoginCommand => ReactiveCommand.Create(
+        async () =>
+        {
+            var result = await _messengerApiHelper.AuthorizeAsync(new string[]
+            {
+                Login,
+                Password
+            });
+
+            if (result) LoginComplete?.Invoke(this, EventArgs.Empty);
+        });
+    public ReactiveCommand<Unit, bool> SwitchModeCommand => ReactiveCommand.Create(
+        () => IsRegister = !IsRegister);
 }

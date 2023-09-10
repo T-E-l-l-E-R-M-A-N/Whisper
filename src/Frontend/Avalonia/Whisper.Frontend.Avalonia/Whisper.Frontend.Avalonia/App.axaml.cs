@@ -27,6 +27,11 @@ public partial class App : Application
             {
                 DataContext = mainViewModel
             };
+
+            desktop.Exit += (_, _) =>
+            {
+                mainViewModel.AppClose();
+            };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {

@@ -80,12 +80,14 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.Services.GetService<ServerBase>().Init();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapGrpcService<AccountService>();
     endpoints.MapGrpcService<MessengerService>();
-    
-    endpoints.MapFallbackToFile("index.html");
+
+    endpoints.Map("/", async h => await h.Response.WriteAsync(h.Connection.LocalIpAddress.ToString()));
 });
 
 

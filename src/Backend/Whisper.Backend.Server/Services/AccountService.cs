@@ -98,6 +98,7 @@ public class AccountService : Account.AccountBase
         };
     }
 
+    
     public override async Task<UserInfoResponse> GetUserInfo(LoginByTokenRequest request, ServerCallContext context)
     {
         var user = await _userManager.GetUserAsync(context.GetHttpContext().User);

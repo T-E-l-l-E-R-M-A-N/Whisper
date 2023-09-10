@@ -1,0 +1,252 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Whisper.Frontend.Avalonia.Views.RoomsPage">
+    <UserControl.Styles>
+        <Style Selector="ToggleButton.tb_toggleButton">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="MinWidth" Value="27"/>
+            <Setter Property="MinHeight" Value="27"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Button.tb_button">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="MinWidth" Value="27"/>
+            <Setter Property="MinHeight" Value="27"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Button.tb_button:disabled /template/ ContentPresenter">
+            <Setter Property="Opacity" Value="0.5"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="Button.tb_button:pressed /template/ ContentPresenter">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="MinWidth" Value="27"/>
+            <Setter Property="MinHeight" Value="27"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="ToggleButton.tb_toggleButton:checked /template/ ContentPresenter">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="MinWidth" Value="27"/>
+            <Setter Property="MinHeight" Value="27"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+    </UserControl.Styles>
+	<DockPanel LastChildFill="True">
+		<Grid IsVisible="{Binding RoomVisible}"
+              Width="340"
+              DockPanel.Dock="Right">
+
+            <DockPanel LastChildFill="True">
+                
+                <Grid>
+					<Grid.Styles>
+						<Style Selector="ScrollBar:vertical">
+							<Setter Property="Margin" Value="0,54,0,0"/>
+                        </Style>
+						<Style Selector="ScrollContentPresenter">
+							<Setter Property="RenderTransform" Value="scale(1,-1)"/>
+                        </Style>
+                    </Grid.Styles>
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                  VerticalScrollBarVisibility="Visible"
+                                  Background="Transparent"
+                                  RenderTransform="scale(1,-1)">
+						<StackPanel>
+                            <Border Height="100" DockPanel.Dock="Top" RenderTransform="scale(1,-1)">
+                                <TextBlock Text="{Binding SelectedRoomModel.Name}" VerticalAlignment="Bottom"
+                                           FontWeight="Bold"
+                                           TextTrimming="CharacterEllipsis"
+                                           Margin="50,8"
+                                           FontSize="30"/>
+                            </Border>
+                            <Border Height="54" Background="#FFFFFF" />
+                            <ItemsControl ItemsSource="{Binding Messages}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="6"
+                                                Background="#FFFFFF"
+                                                BoxShadow="0 0 1 1 #22999999"
+                                                Height="54"
+                                                Margin="10">
+                                            <DockPanel VerticalAlignment="Top"
+                                                       HorizontalAlignment="Left"
+                                                       Margin="5"
+                                                       LastChildFill="True">
+                                                <Border CornerRadius="4"
+                                                        Background="Red"
+                                                        VerticalAlignment="Top"
+                                                        Width="14"
+                                    
+                                                        Height="14"
+                                                        DockPanel.Dock="Left"/>
+                                                <StackPanel Spacing="5"
+                                                            Margin="10,0"
+                                                            VerticalAlignment="Center">
+                                                    <TextBlock VerticalAlignment="Center"
+                                                               TextAlignment="Left"
+                                                               FontSize="11"
+                                                               FontWeight="Bold"
+                                                               Text="{Binding Sender}"
+                                                               TextTrimming="CharacterEllipsis"/>
+
+                                                    <TextBlock VerticalAlignment="Center"
+                                                               FontSize="11"
+                                                               TextWrapping="Wrap"
+                                                               TextTrimming="CharacterEllipsis"
+                                                               TextAlignment="Left"
+                                                               Text="{Binding Text}"/>
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+						</StackPanel>
+					</ScrollViewer>
+					<Border Height="54"
+							BorderThickness="0,1,0,0"
+							Background="#99FFFFFF"
+                            
+							VerticalAlignment="Bottom">
+						<Grid>
+							<StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Spacing="10">
+								<TextBox Height="30"
+										 FontSize="12"
+										 CornerRadius="6"
+                                         RenderTransform="scale(1,-1)"
+										 Width="240"
+										 Watermark="Enter here message..."
+										 Background="#FFFFFF"
+										 BorderThickness="0"
+										 Text="{Binding NewMessageText}"></TextBox>
+								<Button Width="70"
+										Classes="tb_button"
+										HorizontalAlignment="Center"
+										VerticalAlignment="Center"
+										Foreground="CornflowerBlue"
+										Height="27"
+										IsEnabled="{Binding NewMessageText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+										Command="{Binding SendNewMessageCommand}"
+										CornerRadius="6"
+										Background="Transparent"
+										Content="Send"
+										FontSize="12"
+										HorizontalContentAlignment="Center"
+										VerticalContentAlignment="Center"/>
+							</StackPanel>
+						</Grid>
+					</Border>
+                    
+                </Grid>
+            </DockPanel>
+            <Rectangle Width="1"
+                       HorizontalAlignment="Left"
+                       Fill="#22555555"/>
+            <Border VerticalAlignment="Top"
+                    Height="54"
+                    Margin="1,0,0,0"
+                    Padding="5,0"
+                    Background="#99FFFFFF">
+                <StackPanel Spacing="5"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                    <Button Classes="tb_button"
+                            Background="Transparent"
+                            Command="{Binding ClosePopupCommand}">
+                        <Viewbox Width="16"
+                                 Height="16">
+                            <Path Data="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M7.29325,7.29325 C7.65417308,6.93232692 8.22044527,6.90456361 8.61296051,7.20996006 L8.70725,7.29325 L12.00025,10.58625 L15.29325,7.29325 C15.68425,6.90225 16.31625,6.90225 16.70725,7.29325 C17.0681731,7.65417308 17.0959364,8.22044527 16.7905399,8.61296051 L16.70725,8.70725 L13.41425,12.00025 L16.70725,15.29325 C17.09825,15.68425 17.09825,16.31625 16.70725,16.70725 C16.51225,16.90225 16.25625,17.00025 16.00025,17.00025 C15.7869167,17.00025 15.5735833,16.9321944 15.3955509,16.796662 L15.29325,16.70725 L12.00025,13.41425 L8.70725,16.70725 C8.51225,16.90225 8.25625,17.00025 8.00025,17.00025 C7.74425,17.00025 7.48825,16.90225 7.29325,16.70725 C6.93232692,16.3463269 6.90456361,15.7800547 7.20996006,15.3875395 L7.29325,15.29325 L10.58625,12.00025 L7.29325,8.70725 C6.90225,8.31625 6.90225,7.68425 7.29325,7.29325 Z"
+                                  Fill="Black"/>
+                        </Viewbox>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+		<DockPanel LastChildFill="True">
+			<Border Height="100" DockPanel.Dock="Top">
+				<TextBlock Text="{Binding Header}" VerticalAlignment="Bottom"
+						   FontWeight="Bold"
+						   Margin="50,8"
+						   FontSize="30"/>
+			</Border>
+			<Grid>
+                <Grid.Styles>
+                    <Style Selector="ScrollBar:vertical /template/ Thumb">
+                        <Setter Property="Background" Value="Red"/>
+                    </Style>
+                </Grid.Styles>
+				<ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Visible"
+                              Background="Transparent">
+					<ItemsControl ItemsSource="{Binding Rooms}">
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<Border CornerRadius="6"
+                                        Background="#FFFFFF"
+                                        BoxShadow="0 0 5 5 #22999999"
+										Height="54"
+										Margin="10"
+										Width="320">
+									<DockPanel VerticalAlignment="Center"
+											   HorizontalAlignment="Left"
+											   Margin="20,0"
+											   LastChildFill="True">
+										<Border CornerRadius="6"
+												Background="Red"
+												VerticalAlignment="Center"
+												Width="30"
+												Height="30"
+												DockPanel.Dock="Left"/>
+										<StackPanel Spacing="5"
+													Margin="10,0"
+													VerticalAlignment="Center">
+											<TextBlock VerticalAlignment="Center"
+													   TextAlignment="Left"
+													   Text="{Binding Name}"
+                                                       TextTrimming="CharacterEllipsis"/>
+											<Button Width="250"
+													HorizontalAlignment="Left"
+													VerticalAlignment="Center"
+													Foreground="CornflowerBlue"
+													Height="20"
+													TextBlock.TextTrimming="CharacterEllipsis"
+													CornerRadius="4"
+													Command="{Binding $parent[ItemsControl].DataContext.OpenPopupCommand}"
+													CommandParameter="{Binding .}"
+													Background="Transparent"
+													Padding="0"
+													Content="{Binding LastMessage.Text}"
+													FontSize="12"
+													HorizontalContentAlignment="Left"
+													VerticalContentAlignment="Center"></Button>
+										</StackPanel>
+									</DockPanel>
+								</Border>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<WrapPanel Orientation="Horizontal"/>
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+					</ItemsControl>
+				</ScrollViewer>
+                
+			</Grid>
+		</DockPanel>
+    </DockPanel>
+</UserControl>
